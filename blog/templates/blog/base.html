@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Montserrat" rel="stylesheet">
+    <title>Blog</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top indiefont custom-navbar navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+          <a class="navbar-brand bigbrand" href="{% url 'post_list' %}">Blog</a>
+        </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="dropdown"><a class="dropdown-toggle" href="{% url 'about' %}">About</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" href="https://github.com/Prodromosk">Github</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" href="https://www.linkedin.com/in/prodromosk/">LinkedIn</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li>
+            <a href="{% url 'post_new' %}">New Post</a>
+          </li>
+          <li>
+            <a href="{% url 'post_draft_list' %}">Drafts</a>
+          </li>
+          <li>
+            <a href="{% url 'logout' %}">I'm outta here!</a>
+          </li>
+          <li>
+            <a>Welcome: {{ user.username }}</a>
+          </li>
+          {% else %}
+          <li><a class="nav navbar-right" href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span>Get in!</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+    {% if request.get_full_path == "/" %}
+    <header class="masthead" style="background-image: url('{% static "img/notepad-thoughts.jpg" %}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="  mx-auto">
+            <div class="site-heading">
+              <h1 class="h1-header">Blog app</h1>
+              <span class="subheading">Django blog project. user:prod pass:prod123!</span>
+          </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    {% endif %}
+    {% if request.path == "/post/new/" %}
+    <header class="masthead" style="background-image: url('{% static "img/notepad-thoughts.jpg" %}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="  mx-auto">
+            <div class="site-heading">
+              <h1 class="h1-header">Create a new Post</h1>
+          </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    {% endif %}
+    <div class="content container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="blog_posts">
+            {% block content %}
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+body {
+  font-family: 'Montserrat';
+  padding-top: 50px;
+}
+
+.indiefont {
+  font-family: 'Indie Flower',sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.bigbrand {
+  font-size: 1.5em;
+}
+
+.centerstage {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.postdate {
+  text-align: center;
+}
+
+.posttitle {
+  font-family: 'Indie Flower',sans-serif;
+  font-size: 3em;
+  text-align: center;
+}
+
+.postcontent {
+  font-family: 'Montserrat';
+  font-size: 1.5em
+}
+
+.btn-comment {
+  position: absolute;
+  right: 0px;
+}
+
+.h1-title {
+  font-family: 'Montserrat';
+  font-size: 1.5em;
+}
+
+header.masthead {
+    margin-bottom: 50px;
+    background: no-repeat center center;
+    background-color: #868e96;
+    background-attachment: scroll;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+header.masthead .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #212529;
+    opacity: .5;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+div {
+  display: block;
+}
+
+.ml-auto, .mx-auto {
+    margin-left: auto!important;
+}
+
+.mr-auto, .mx-auto {
+    margin-right: auto!important;
+}
+
+header.masthead .page-heading, header.masthead .site-heading {
+    text-align: center;
+}
+header.masthead .page-heading, header.masthead .post-heading, header.masthead .site-heading {
+    padding: 200px 0 150px;
+    color: #fff;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.h1-header {
+  font-size: 70px;
+    font-weight: 800;
+    font-family: 'Indie Flower',sans-serif;
+    position: relative;
+}
+
+.subheading {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.1;
+    display: block;
+    margin: 10px 0 0;
+    font-family: 'Montserrat',sans-serif;
+    position: relative;
+}
